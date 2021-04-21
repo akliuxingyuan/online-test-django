@@ -1,8 +1,10 @@
-from django.urls import path,re_path
+from django.urls import path, re_path
+from rest_framework_jwt.views import obtain_jwt_token
 
 from . import views
 
 urlpatterns = [
-    path('users/', views.UserSignUpView.as_view()),
-    re_path(r'^users/(?P<username>\w{5,32})/exist/$', views.UserExistView.as_view())
+    path('signup/', views.UserSignUpView.as_view()),
+    re_path(r'^username/(?P<username>\w+)/exist/$', views.UserExistView.as_view()),
+    path('signin/', obtain_jwt_token)
 ]

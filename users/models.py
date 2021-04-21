@@ -6,8 +6,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    email_push = models.BooleanField(_('email push'), default=False)
-
     class Meta:
         db_table = 'users'
         verbose_name = _('user')
